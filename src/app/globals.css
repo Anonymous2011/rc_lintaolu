@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  /* Light only, deliberately. `color-scheme` also keeps form controls and
+     scrollbars light on a machine set to dark, which the palette alone
+     would not do. */
+  color-scheme: light;
+  /* The page is deliberately not white: cards are white, and two white
+     surfaces separated by a hairline border read as no separation at all. */
+  --background: #f4f4f5;
+  --foreground: #18181b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* Geist ships no CJK glyphs; without these the Chinese UI falls back to the
+     browser's last-resort font. */
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+    sans-serif;
+}
